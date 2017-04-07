@@ -4,3 +4,9 @@ c:\users\lucas\documents\visual studio 2013\Projects\TPProgramacion3\TPProgramac
 c:\users\lucas\documents\visual studio 2013\Projects\TPProgramacion3\TPProgramacion3\obj\Debug\TPProgramacion3.csprojResolveAssemblyReference.cache
 c:\users\lucas\documents\visual studio 2013\Projects\TPProgramacion3\TPProgramacion3\obj\Debug\TPProgramacion3.exe
 c:\users\lucas\documents\visual studio 2013\Projects\TPProgramacion3\TPProgramacion3\obj\Debug\TPProgramacion3.pdb
+C:\Users\Lucas\Documents\TpProgramacion3\TPProgramacion3\TPProgramacion3\bin\Debug\TPProgramacion3.exe.config
+C:\Users\Lucas\Documents\TpProgramacion3\TPProgramacion3\TPProgramacion3\obj\Debug\TPProgramacion3.exe
+C:\Users\Lucas\Documents\TpProgramacion3\TPProgramacion3\TPProgramacion3\obj\Debug\TPProgramacion3.pdb
+C:\Users\Lucas\Documents\TpProgramacion3\TPProgramacion3\TPProgramacion3\bin\Debug\TPProgramacion3.exe
+C:\Users\Lucas\Documents\TpProgramacion3\TPProgramacion3\TPProgramacion3\bin\Debug\TPProgramacion3.pdb
+C:\Users\Lucas\Documents\TpProgramacion3\TPProgramacion3\TPProgramacion3\obj\Debug\TPProgramacion3.csprojResolveAssemblyReference.cache

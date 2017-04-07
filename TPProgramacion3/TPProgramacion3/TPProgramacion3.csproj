@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cursor.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Personaje.cs" />
     <Compile Include="Program.cs" />
