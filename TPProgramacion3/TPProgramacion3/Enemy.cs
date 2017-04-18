@@ -92,6 +92,7 @@ namespace TPProgramacion3
         }
         public void Respawn()
         {
+            ClearOldSprite();
             x = rnd.Next(75);
             y = rnd.Next(24);
         }

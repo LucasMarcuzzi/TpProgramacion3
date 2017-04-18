@@ -139,7 +139,9 @@ namespace TPProgramacion3
                }
                while (playstate)
                {
-                   t1.Draw();
+
+                   p1.MostrarVidas();
+                    t1.Draw();
                    t2.Draw();
                    t3.Draw();
                    Console.SetCursorPosition(76, 23);
@@ -165,8 +167,9 @@ namespace TPProgramacion3
                                playstate = !playstate;
                                break;
                        }
-                       p1.CleanLastSprite();
-                   }
+                        p1.CleanLastSprite();
+                        p1.Draw();
+                    }
                    ///////////////////////////////////////////////////////////////////////////////////////////////////////
                    //INTERACCIONES ENTRE ENTIDADES
                    ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -204,22 +207,31 @@ namespace TPProgramacion3
                    }
                    if ((e1.GetX() == p1.GetX()) && (e1.GetY() == p1.GetY()))
                    {
-                       playstate = !playstate;
-                       menustate = !menustate;
-                       clearconsole = !clearconsole;
-                   }
+                        //playstate = !playstate;
+                        //menustate = !menustate;
+                        //clearconsole = !clearconsole;
+                        p1.perderVida();
+                        e1.Respawn();
+                        e2.Respawn();
+                    }
                    if ((e2.GetX() == p1.GetX()) && (e2.GetY() == p1.GetY()))
                    {
-                       playstate = !playstate;
-                       menustate = !menustate;
-                       clearconsole = !clearconsole;
-                   }
+                        //playstate = !playstate;
+                        //menustate = !menustate;
+                        //clearconsole = !clearconsole;
+                        p1.perderVida();
+                        e1.Respawn();
+                        e2.Respawn();
+                    }
                    if (t1.Overlap(p1.GetX(), p1.GetY()))
                    {
-                       playstate = !playstate;
-                       menustate = !menustate;
-                       clearconsole = !clearconsole;
-                   }
+                        //playstate = !playstate;
+                        //menustate = !menustate;
+                        //clearconsole = !clearconsole;
+                        p1.perderVida();
+                        e1.Respawn();
+                        e2.Respawn();
+                    }
                    if (t1.Overlap(e1.GetX(), e1.GetY()))
                    {
                        e1.Respawn();
@@ -231,10 +243,13 @@ namespace TPProgramacion3
                        score++;
                    } if (t2.Overlap(p1.GetX(), p1.GetY()))
                    {
-                       playstate = !playstate;
-                       menustate = !menustate;
-                       clearconsole = !clearconsole;
-                   }
+                        //playstate = !playstate;
+                        //menustate = !menustate;
+                        //clearconsole = !clearconsole;
+                        p1.perderVida();
+                        e1.Respawn();
+                        e2.Respawn();
+                    }
                    if (t2.Overlap(e1.GetX(), e1.GetY()))
                    {
                        e1.Respawn();
@@ -247,10 +262,13 @@ namespace TPProgramacion3
                    }
                    if (t3.Overlap(p1.GetX(), p1.GetY()))
                    {
-                       playstate = false;
-                       menustate = true;
-                       clearconsole = false;
-                   }
+                        //playstate = false;
+                        //menustate = true;
+                        //clearconsole = false;
+                        p1.perderVida();
+                        e1.Respawn();
+                        e2.Respawn();
+                    }
                    if (t3.Overlap(e1.GetX(), e1.GetY()))
                    {
                        e1.Respawn();
@@ -261,7 +279,15 @@ namespace TPProgramacion3
                        e2.Respawn();
                        score++;
                    }
-                   System.Threading.Thread.Sleep(80);
+                   if(p1.getVidas() <= 0)
+                    {
+                        playstate = false;
+                        menustate = true;
+                        clearconsole = false;
+                        p1.setVidas(3);
+                    }
+
+                    System.Threading.Thread.Sleep(80);
                }
            }
         }

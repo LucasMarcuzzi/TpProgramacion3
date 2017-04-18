@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cursor.cs" />
+    <Compile Include="Disparo.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Juego.cs" />
     <Compile Include="Personaje.cs" />

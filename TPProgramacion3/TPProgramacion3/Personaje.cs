@@ -15,6 +15,8 @@ namespace TPProgramacion3
         private char sprite;
         private int limitx = 75;
         private int limity = 24;
+        private int vidas = 3;
+        string vidasTexto = "♥♥♥";
 
         public Personaje(int posx, int posy, char icon)
         {
@@ -89,12 +91,49 @@ namespace TPProgramacion3
         {
             return y;
         }
-
+        public int getVidas()
+        {
+            return vidas;
+        }
+        public void setVidas(int _vidas)
+        {
+            vidas = _vidas;
+        }
+        public void MostrarVidas()
+        {
+            //Console.Clear();
+            Console.SetCursorPosition(1,1);
+            Console.WriteLine(vidasTexto);
+        }
         public void Draw()
         {
             Console.SetCursorPosition(x, y);
             Console.Write(sprite);
             Console.SetCursorPosition(limitx+1, limity+1);
+        }
+        public void perderVida()
+        {
+            Console.Clear();
+            vidas--;
+            if (vidas > 0)
+            { 
+                Respawn();
+                switch(vidas)
+                {
+                    case 3:
+                        vidasTexto = "♥♥♥";
+                        break;
+                    case 2:
+                        vidasTexto = "♥♥";
+                        break;
+                    case 1:
+                        vidasTexto = "♥";
+                        break;
+                    default:
+                        vidasTexto = "";
+                        break;
+                }
+            }
         }
         public void Respawn()
         {
