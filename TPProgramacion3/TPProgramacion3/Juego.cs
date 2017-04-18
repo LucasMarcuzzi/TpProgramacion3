@@ -4,15 +4,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace TPProgramacion3
 {
     class Juego
     {
             bool menustate = true;
+            bool firsttime = true;
             bool clearconsole = false;
             bool playstate = false;
             bool game = true;
+            int score = 0;
+            int highscore = 0;
             Personaje p1;           
             Enemy e1;
             Enemy e2;         
@@ -37,20 +41,66 @@ namespace TPProgramacion3
             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
            while (game)
            {
+               if (firsttime)
+               {
+                   if (!File.Exists("mensaje.txt"))
+                   {
+                       Console.Clear();
+                       FileStream fs = File.Create("mensaje.txt");
+                       StreamWriter sw = new StreamWriter(fs);
+                       Console.SetCursorPosition(30, 3);
+                       Console.WriteLine("Ingrese un mensaje de bienvenida");
+                       Console.SetCursorPosition(34, 15);
+                       sw.WriteLine(Convert.ToString(Console.ReadLine()));
+                       sw.Close();
+                       fs.Close();
+                       Console.Clear();
+                       firsttime = !firsttime;
+                   }
+               }
                while (menustate)
                {
                    if (!clearconsole)
                    {
                        Console.Clear();
+                       FileStream fs = File.OpenRead("mensaje.txt");
+                       StreamReader sr = new StreamReader(fs);
                        clearconsole = !clearconsole;
+                       Console.SetCursorPosition(30, 0);
+                       Console.WriteLine(sr.ReadLine());
                        Console.SetCursorPosition(30, 3);
                        Console.WriteLine("TP Programacion 3");
                        Console.SetCursorPosition(34, 15);
                        Console.WriteLine("Empezar");
                        Console.SetCursorPosition(35, 17);
                        Console.WriteLine("Salir");
+                       Console.SetCursorPosition(30, 24);
+                       if (File.Exists("highscore.txt"))
+                       {
+                           FileStream fs3 = File.OpenRead("highscore.txt");
+                           BinaryReader br = new BinaryReader(fs3);
+                           Console.WriteLine("Highscore: " + br.ReadInt32());
+                           fs3.Close();
+                           br.Close();
+                       }
+                       else
+                       {
+                           Console.WriteLine("Highscore: 0");
+                       }
                        Console.SetCursorPosition(0, 0);
                        flechita.Draw();
+                       p1.Respawn();
+                       e1.Respawn();
+                       e2.Respawn();
+                       fs.Close();
+                       sr.Close();
+                       if(score>highscore){
+                       FileStream fs2 = File.OpenWrite("highscore.txt");
+                       BinaryWriter bw = new BinaryWriter(fs2);
+                       bw.Write(score);
+                       fs2.Close();
+                       bw.Close();
+                       }
                    }
                    ConsoleKeyInfo Movimiento = Console.ReadKey();
                    switch (Movimiento.Key)
@@ -154,46 +204,62 @@ namespace TPProgramacion3
                    }
                    if ((e1.GetX() == p1.GetX()) && (e1.GetY() == p1.GetY()))
                    {
-                       p1.Respawn();
+                       playstate = !playstate;
+                       menustate = !menustate;
+                       clearconsole = !clearconsole;
                    }
                    if ((e2.GetX() == p1.GetX()) && (e2.GetY() == p1.GetY()))
                    {
-                       p1.Respawn();
+                       playstate = !playstate;
+                       menustate = !menustate;
+                       clearconsole = !clearconsole;
                    }
                    if (t1.Overlap(p1.GetX(), p1.GetY()))
                    {
-                       p1.Respawn();
+                       playstate = !playstate;
+                       menustate = !menustate;
+                       clearconsole = !clearconsole;
                    }
                    if (t1.Overlap(e1.GetX(), e1.GetY()))
                    {
                        e1.Respawn();
+                       score++;
                    }
                    if (t1.Overlap(e2.GetX(), e2.GetY()))
                    {
                        e2.Respawn();
+                       score++;
                    } if (t2.Overlap(p1.GetX(), p1.GetY()))
                    {
-                       p1.Respawn();
+                       playstate = !playstate;
+                       menustate = !menustate;
+                       clearconsole = !clearconsole;
                    }
                    if (t2.Overlap(e1.GetX(), e1.GetY()))
                    {
                        e1.Respawn();
+                       score++;
                    }
                    if (t2.Overlap(e2.GetX(), e2.GetY()))
                    {
                        e2.Respawn();
+                       score++;
                    }
                    if (t3.Overlap(p1.GetX(), p1.GetY()))
                    {
-                       p1.Respawn();
+                       playstate = false;
+                       menustate = true;
+                       clearconsole = false;
                    }
                    if (t3.Overlap(e1.GetX(), e1.GetY()))
                    {
                        e1.Respawn();
+                       score++;
                    }
                    if (t3.Overlap(e2.GetX(), e2.GetY()))
                    {
                        e2.Respawn();
+                       score++;
                    }
                    System.Threading.Thread.Sleep(80);
                }

@@ -8,6 +8,7 @@ namespace TPProgramacion3
 {
     class Enemy
     {
+        static Random rnd = new Random();
         private int respawnpointx;
         private int respawnpointy;
         private int x;
@@ -91,8 +92,8 @@ namespace TPProgramacion3
         }
         public void Respawn()
         {
-            x = respawnpointx;
-            y = respawnpointy;
+            x = rnd.Next(75);
+            y = rnd.Next(24);
         }
     }
 }
