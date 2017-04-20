@@ -216,7 +216,25 @@ namespace TPProgramacion3
                    {
                        e2.GoDown();
                    }
-                   if ((e1.GetX() == p1.GetX()) && (e1.GetY() == p1.GetY()))
+                   for (int i = 0; i < disparos.Count; i++)
+                   {
+                        if (e1.GetX() == disparos[i].GetX() && e1.GetY() == disparos[i].getY())
+                            {
+                                e1.Respawn();
+                                disparos.RemoveAt(i); //Hace que el disparo desaparezca al darle a un enemigo.
+                                score++;
+                            }
+                    }
+                    for (int i = 0; i < disparos.Count; i++)
+                    {
+                        if (e2.GetX() == disparos[i].GetX() && e2.GetY() == disparos[i].getY())
+                        {
+                            e2.Respawn();
+                            disparos.RemoveAt(i); //Hace que el disparo desaparezca al darle a un enemigo.
+                            score++;
+                        }
+                    }
+                        if ((e1.GetX() == p1.GetX()) && (e1.GetY() == p1.GetY()))
                    {
                         //playstate = !playstate;
                         //menustate = !menustate;

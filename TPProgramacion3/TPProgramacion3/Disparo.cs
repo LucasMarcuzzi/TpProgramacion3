@@ -19,6 +19,24 @@ namespace TPProgramacion3
             y = _y;
 
             direccion = _direccion;
+            switch (direccion)
+            {
+                case "arriba":
+                    y--;
+                    break;
+                case "abajo":
+                    y++;
+                    break;
+                case "izquierda":
+                    x--;
+                    break;
+                case "derecha":
+                    x++;
+                    break;
+                default:
+                    y--;
+                    break;
+            }
         }
         ~Disparo()
         {
@@ -65,6 +83,14 @@ namespace TPProgramacion3
                 Console.SetCursorPosition(previousx, previousy);
                 Console.Write(" ");
             }
+        }
+        public int GetX()
+        {
+            return x;
+        }
+        public int getY()
+        {
+            return y;
         }
         public void Update()
         {
