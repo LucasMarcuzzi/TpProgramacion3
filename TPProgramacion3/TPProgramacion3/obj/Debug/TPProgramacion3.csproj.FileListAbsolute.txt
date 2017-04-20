@@ -16,3 +16,9 @@ C:\Users\822\Desktop\TpProgramacion3\TPProgramacion3\TPProgramacion3\bin\Debug\w
 C:\Users\822\Desktop\TpProgramacion3\TPProgramacion3\TPProgramacion3\obj\Debug\TPProgramacion3.csprojResolveAssemblyReference.cache
 C:\Users\822\Desktop\TpProgramacion3\TPProgramacion3\TPProgramacion3\obj\Debug\w.exe
 C:\Users\822\Desktop\TpProgramacion3\TPProgramacion3\TPProgramacion3\obj\Debug\w.pdb
+C:\Users\Benja\Desktop\Facultad\Segundo año\Programacion III\TpProgramacion3\TPProgramacion3\TPProgramacion3\bin\Debug\w.exe.config
+C:\Users\Benja\Desktop\Facultad\Segundo año\Programacion III\TpProgramacion3\TPProgramacion3\TPProgramacion3\obj\Debug\w.exe
+C:\Users\Benja\Desktop\Facultad\Segundo año\Programacion III\TpProgramacion3\TPProgramacion3\TPProgramacion3\obj\Debug\w.pdb
+C:\Users\Benja\Desktop\Facultad\Segundo año\Programacion III\TpProgramacion3\TPProgramacion3\TPProgramacion3\bin\Debug\w.exe
+C:\Users\Benja\Desktop\Facultad\Segundo año\Programacion III\TpProgramacion3\TPProgramacion3\TPProgramacion3\bin\Debug\w.pdb
+C:\Users\Benja\Desktop\Facultad\Segundo año\Programacion III\TpProgramacion3\TPProgramacion3\TPProgramacion3\obj\Debug\TPProgramacion3.csprojResolveAssemblyReference.cache

@@ -10,20 +10,21 @@ namespace TPProgramacion3
 {
     class Juego
     {
-            bool menustate = true;
-            bool firsttime = true;
-            bool clearconsole = false;
-            bool playstate = false;
-            bool game = true;
-            int score = 0;
-            int highscore = 0;
-            Personaje p1;           
-            Enemy e1;
-            Enemy e2;         
-            Trap t1;
-            Trap t2;
-            Trap t3;    
-            Cursor flechita;
+        bool menustate = true;
+        bool firsttime = true;
+        bool clearconsole = false;
+        bool playstate = false;
+        bool game = true;
+        int score = 0;
+        int highscore = 0;
+        Personaje p1;
+        Enemy e1;
+        Enemy e2;
+        Trap t1;
+        Trap t2;
+        Trap t3;
+        Cursor flechita;
+        static List<Disparo> disparos;
             
         public Juego(){
             e1 = new Enemy(5, 5, '$');
@@ -33,6 +34,7 @@ namespace TPProgramacion3
             t2 = new Trap(23, 23, 'X');
             t3 = new Trap(30, 15, 'X');
             flechita = new Cursor(32, 15, '→');
+            disparos = new List<Disparo>();
         }
 
         public void Update(){
@@ -144,11 +146,15 @@ namespace TPProgramacion3
                     t1.Draw();
                    t2.Draw();
                    t3.Draw();
-                   Console.SetCursorPosition(76, 23);
+                   for (int i = 0; i < disparos.Count; i++)
+                   {
+                       disparos[i].Update();
+                   }
+                    Console.SetCursorPosition(76, 23);
                    if (Console.KeyAvailable)
                    {
-                       ConsoleKeyInfo Movimiento = Console.ReadKey();
-                       switch (Movimiento.Key)
+                       ConsoleKeyInfo Controles = Console.ReadKey();
+                       switch (Controles.Key)
                        {
                            case ConsoleKey.W:
                                p1.MoveUp();
@@ -162,10 +168,15 @@ namespace TPProgramacion3
                            case ConsoleKey.D:
                                p1.MoveRight();
                                break;
-                           case ConsoleKey.Escape:
+                           case ConsoleKey.J:
+                                disparos.Add(new Disparo(p1.GetX(), p1.GetY(), p1.getDireccion()));
+                                break;
+                            case ConsoleKey.Escape:
                                game = !game;
                                playstate = !playstate;
                                break;
+                            default:
+                                break;
                        }
                         p1.CleanLastSprite();
                         p1.Draw();

@@ -17,6 +17,7 @@ namespace TPProgramacion3
         private int limity = 24;
         private int vidas = 3;
         string vidasTexto = "♥♥♥";
+        string direccion;
 
         public Personaje(int posx, int posy, char icon)
         {
@@ -25,6 +26,7 @@ namespace TPProgramacion3
             sprite = icon;
             previousx = -1;
             previousy = -1;
+            direccion = "arriba";
             Draw();
         }
         
@@ -35,6 +37,7 @@ namespace TPProgramacion3
                 previousy = y;
                 previousx = x;
                 x--;
+                direccion = "izquierda";
                 Draw();
             }
         }
@@ -46,6 +49,7 @@ namespace TPProgramacion3
                 previousy = y;
                 previousx = x;
                 x++;
+                direccion = "derecha";
                 Draw();
             }
         }
@@ -57,6 +61,7 @@ namespace TPProgramacion3
                 previousy = y;
                 previousx = x;
                 y--;
+                direccion = "arriba";
                 Draw();
             }
         }
@@ -68,6 +73,7 @@ namespace TPProgramacion3
                 previousy = y;
                 previousx = x;
                 y++;
+                direccion = "abajo";
                 Draw();
             }
         }
@@ -135,11 +141,14 @@ namespace TPProgramacion3
                 }
             }
         }
+        public string getDireccion()
+        {
+            return direccion;
+        }
         public void Respawn()
         {
             x = 20;
             y = 20;
         }
-    }
-    
+    }  
 }

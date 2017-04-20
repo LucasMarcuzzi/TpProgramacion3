@@ -12,8 +12,7 @@ namespace TPProgramacion3
         {
             Juego game;
             game = new Juego();
-            game.Update();
-           
+            game.Update();           
         }
     }
 }
